@@ -126,11 +126,13 @@ $$\delta \Delta h = u(\Delta h) = \sqrt{0.001^2+0.001^2} m = 0.00141 m$$
 
 
 We substitute into this expression:
+
 $$u_c^2(\Delta P) = u^2(g)  (\frac{ \Delta P}{g})^2+
 u^2(\rho) (\frac{ \Delta P}{\rho})^2+
 u^2(\Delta h) (\frac{ \Delta P}{\Delta h})^2 $$
 
 Rearranging:
+
 $$u_c^2(\Delta P) = \Delta P^2  \left( (\frac{u(g) }{g})^2+
 (\frac{u(\rho)}{\rho})^2+
  (\frac{ u(\Delta h)}{\Delta h})^2 \right)$$
