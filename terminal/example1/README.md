@@ -26,7 +26,7 @@ of uncertainty in measurement) by the Joint Committee for
 Guides in Metrology (JCGM, also btw, i think Metrolopy
 gets its name from here), we can use the following formula:
 
-$$u_c^2(\Delta h) =\left( u^2(h_2) \frac{\partial \Delta h}{h_2})^2+
+$$u_c^2(\Delta h) =\left( u^2(h_2) (\frac{\partial \Delta h}{h_2})^2+
 u^2(h_1) (\frac{\partial \Delta h}{h_1})^2 \right)$$
 
 Where 
