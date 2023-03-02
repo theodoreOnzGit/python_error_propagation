@@ -1,4 +1,6 @@
 import metrolopy as uc
+import sigfig
+import math
 
 ## create gummy quantity
 # Gummy is named because of GUM
@@ -41,12 +43,12 @@ print(g)
 g.style = "+-"
 print(g)
 
-
 # now for density
 # you will find that density (as of feb 2023) doesn't work,
 # in fact, density units are missing from here
 print("\n Try to get density units, we don't get the right answer...\n")
 uc.search_units("density", fmt="utf-8", show_all=False)
+
 # this doesn't quite work for density, because we'll get
 # magnetic flux density
 
@@ -57,11 +59,11 @@ uc.search_units("volume", fmt="utf-8", show_all=True)
 
 # we take 1 kiloLiter which is 1 m3
 # with zero uncertainty
-one_meter_cubed = uc.gummy(1, u=0.0, unit="kL")
+one_meter_cubed = uc.gummy(1.0, u=0.0, unit="kL")
 
 # we then add the mass which is 1061 kg with +- 0.05
 # uncertainty
-fluid_mass = uc.gummy(1061, u=0.05, unit="kg")
+fluid_mass = uc.gummy(1061, u=0.5, unit="kg")
 
 density = fluid_mass / one_meter_cubed
 print("\n here's our clunky way for obtaining density \n")
@@ -78,5 +80,12 @@ print(pressure)
 pressure.unit = "Pa"
 pressure.style = "+-"
 print(pressure)
+
+# pressure.nsig = 2
+# sigfig documentation:
+# https://rowannicholls.github.io/python/data/rounding_off.html
+print(sigfig.round(pressure.x, sigfigs=2))
+print(sigfig.round(math.ceil(pressure.u), sigfigs=1))
+
 
 print("\n =================   end of tutorial ============== \n")
