@@ -106,6 +106,50 @@ $1061  \pm 0.5 kg m^{-3}$, for Therminol VP-1
 at 20 C.  Though you can see here, we need to do unit conversion. Which
 is tedious.
 
+Suppose we use 
+
+$$\Delta h = h_2 - h_1 $$
+$$h_1 = 1.050 \pm 0.001 m$$
+$$h_1 = 1.061 \pm 0.001 m$$
+$$g = 9.80 \pm 0.03 m s^{-2}$$
+$$\rho = 1061  \pm 0.5 kg m^{-3}$$
+
+What is our uncertainty?
+
+First let's calculate our pressure, we are not
+rounding off yet until we find our uncertainty:
+$$\Delta P = 114.3758~Pa~\text{(pending round off)}$$
+
+Also, for most values here, we won't round off till the last part.
+
+$$\delta \Delta h = u(\Delta h) = \sqrt{0.001^2+0.001^2} m = 0.00141 m$$
+
+
+We substitute into this expression:
+$$u_c^2(\Delta P) = u^2(g)  (\frac{ \Delta P}{g})^2+
+u^2(\rho) (\frac{ \Delta P}{\rho})^2+
+u^2(\Delta h) (\frac{ \Delta P}{\Delta h})^2 $$
+
+Rearranging:
+$$u_c^2(\Delta P) = \Delta P^2  \left( (\frac{u(g) }{g})^2+
+(\frac{u(\rho)}{\rho})^2+
+ (\frac{ u(\Delta h)}{\Delta h})^2 \right)$$
+
+$$u_c^2(\Delta P) = 114.3758^2  \left( (\frac{0.03}{9.80})^2+
+(\frac{0.5}{1061})^2+
+ (\frac{0.00141}{0.011})^2 \right)$$
+
+$$u_c^2(\Delta P) = 215.06 Pa ^2$$
+$$u_c^2(\Delta P) = 14.665 Pa$$
+
+Now we know our uncertainty, we can round off to the
+nearest 10 if our uncertainties are 1sf (we round up here
+to be conservative)
+$$\Delta P = 110 \pm 20 Pa$$
+
+Or if we want 2sf uncertainty,
+
+$$\Delta P = 114 \pm 15 Pa$$
 
 Thus,
 for even the simplest expression, there is quite some effort required
@@ -115,7 +159,10 @@ becomes quite tedious. Sometimes, these errors are correlated and then
 we'll need to factor that into uncertainty calculations as well.
 How can we automate this process?
 
-Enter metrolopy
+
+
+Enter metrolopy. Run nodemon or python3 on the file with metrolopy
+installed.
 
 
 ## notes on therminol
